@@ -86,10 +86,16 @@ const cart = {
     // Runs when the user clicks 'Duplicate' on a sandwich card
     async duplicateSandwich(sandwich) {
         let newSandwich = {
-            name: sandwich.name,
-            bread: sandwich.bread,
-            ingredients: sandwich.ingredients
+            ...sandwich
         }
+    //both methods do the same thing but top is more concise
+    // async duplicateSandwich(sandwich) {
+    //     let newSandwich = {
+    //         name: sandwich.name,
+    //         bread: sandwich.bread,
+    //         ingredients: sandwich.ingredients
+    //     }
+
 
         // Save the sandwich on the server
         let response = await fetch(`http://localhost:3001/cart`, {
